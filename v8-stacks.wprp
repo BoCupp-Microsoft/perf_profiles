@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowsPerformanceRecorder Version="1.0">
+  <Profiles>
+    <EventCollector Id="EventCollector_V8" Name="V8 Event Collector">
+      <BufferSize Value="1024"/>
+      <Buffers Value="256"/>
+    </EventCollector>
+
+    <EventProvider Id="Provider_V8" Name="57277741-3638-4A4B-BDBA-0AC6E45DA56C" Level="5" Stack="true"></EventProvider>
+    
+    <Profile Id="V8.Provider.Verbose.File" Name="V8.Provider" DetailLevel="Verbose" LoggingMode="File" Description="V8 Provider">
+      <Collectors>
+        <EventCollectorId Value="EventCollector_V8">
+          <EventProviders>
+            <EventProviderId Value="Provider_V8" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+  </Profiles>
+</WindowsPerformanceRecorder>

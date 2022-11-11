@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowsPerformanceRecorder Version="1.0">
+  <Profiles>
+    <SystemCollector Id="SystemCollector" Name="NT Kernel Logger">
+      <BufferSize Value="1024"/>
+      <Buffers Value="384"/>
+    </SystemCollector>
+
+    <SystemProvider Id="SystemProvider">
+      <Keywords Operation="Add">
+        <Keyword Value="ProcessThread"/>
+        <Keyword Value="Loader"/>
+        <Keyword Value="ReadyThread"/>
+        <Keyword Value="CSwitch"/>
+      </Keywords>
+      <Stacks>
+        <!-- See https://docs.microsoft.com/en-us/windows-hardware/test/wpt/stack-wpa for options -->
+        <Stack Value="ReadyThread"/>
+        <Stack Value="CSwitch"/>
+      </Stacks>
+    </SystemProvider>
+    
+    <Profile Id="Kernel.CSwitch.Stacks.Verbose.File" Name="Kernel.CSwitch.Stacks" DetailLevel="Verbose" LoggingMode="File" Description="Kernel CSwitch Stacks">
+      <Collectors>
+        <SystemCollectorId Value="SystemCollector">
+          <SystemProviderId Value="SystemProvider"></SystemProviderId>
+        </SystemCollectorId>
+      </Collectors>
+    </Profile>
+  </Profiles>
+</WindowsPerformanceRecorder>
